@@ -17,7 +17,7 @@ A container running the MOZ Qless UI - a redis backed job queue (inspired by res
 	EnvironmentFile=/etc/environment
 	ExecStartPre=/usr/bin/docker pull johnjansen/qless:latest
 	ExecStartPre=-/usr/bin/docker rm qless-ui
-	ExecStart=/bin/sh -c '/usr/bin/docker run --rm --name qless-ui -e REDIS_HOST=$(/usr/bin/etcdctl get /services/redis) johnjansen/qless thin start'
+	ExecStart=/bin/sh -c '/usr/bin/docker run --rm --name qless-ui  --link redis_dynamic_ambassador:qless_redis johnjansen/qless'
 	ExecStop=/usr/bin/docker stop qless-ui
 	ExecStopPost=-/usr/bin/docker rm qless-ui
 	Restart=always
