@@ -1,5 +1,5 @@
 # docker-qless
-A container running the MOZ Qless UI - a redis backed job queue (inspired by resque)
+A container running the MOZ Qless UI <https://github.com/seomoz/qless> - a redis backed job queue (inspired by resque)
 
 
 ### Run with docker
